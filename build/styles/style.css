@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  padding: 0 2.4rem;
+  padding: 0 3.2rem;
   font-family: "Poppins", sans-serif;
   font-size: var(--font-md);
   font-weight: var(--fw-medium);
@@ -76,6 +76,10 @@ body {
   font-weight: var(--fw-light);
 }
 
+.elm-hero__description {
+  letter-spacing: 0.005em;
+}
+
 /* Card Styling */
 
 .card-container {
@@ -87,9 +91,9 @@ body {
 
 .card {
   position: relative;
+  justify-self: center;
   padding: 3.2rem;
   max-width: 35rem;
-  justify-self: center;
   width: 100%;
   background-color: var(--neutral-400);
   border-radius: 0.8rem;
@@ -107,19 +111,21 @@ body {
   height: 0.4rem;
 }
 
-.card[data-order="1"],
-.card[data-order="4"] {
-  grid-row: 1 / span 3;
-  align-self: center;
-  margin-bottom: 2.7rem;
-}
+@media only screen and (min-width: 997px) {
+  .card[data-order="1"],
+  .card[data-order="4"] {
+    grid-row: 1 / span 3;
+    align-self: center;
+    margin-bottom: 2.7rem;
+  }
 
-.card[data-order="4"] {
-  grid-column: 3;
-}
+  .card[data-order="4"] {
+    grid-column: 3;
+  }
 
-.card[data-order="3"] {
-  grid-column: 2;
+  .card[data-order="3"] {
+    grid-column: 2;
+  }
 }
 
 .card[data-order="1"]::before {
@@ -157,4 +163,54 @@ body {
 .card__image {
   display: flex;
   justify-content: flex-end;
+}
+
+@media only screen and (max-width: 996px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    padding-bottom: 7.7rem;
+    max-width: 73rem;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 546px) {
+  .elm-hero__header {
+    padding: 8.3rem 0 7.5rem;
+    max-width: 29.7rem;
+    width: 100%;
+  }
+
+  .elm-hero__title {
+    --font-xl: 2.4rem;
+    margin-bottom: 1.5rem;
+    line-height: 3.7rem;
+    letter-spacing: 0.01em;
+  }
+
+  .elm-hero__title--light {
+    letter-spacing: 0;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+    grid-gap: 2.5rem;
+  }
+
+  .card {
+    padding: 2.8rem;
+  }
+
+  .card__content {
+    margin-bottom: 3.2rem;
+  }
+
+  .card__title {
+    margin-bottom: 0.6rem;
+  }
+
+  .card__image img {
+    width: 5.7rem;
+  }
 }
