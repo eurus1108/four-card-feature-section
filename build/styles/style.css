@@ -24,6 +24,8 @@ html {
   background: hsla(0, 78%, 62%, 50%);
 } */
 
+/* General Styling */
+
 * {
   margin: 0;
   padding: 0;
@@ -51,6 +53,8 @@ body {
   margin: 0 auto;
 }
 
+/* Header Styling */
+
 .elm-hero__header {
   margin: 0 auto;
   padding: 7.8rem 0 6.3rem;
@@ -70,4 +74,87 @@ body {
 
 .elm-hero__title--light {
   font-weight: var(--fw-light);
+}
+
+/* Card Styling */
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 3rem;
+}
+
+.card {
+  position: relative;
+  padding: 3.2rem;
+  max-width: 35rem;
+  justify-self: center;
+  width: 100%;
+  background-color: var(--neutral-400);
+  border-radius: 0.8rem;
+  box-shadow: 0px 10px 16px -10px rgba(163, 165, 174, 0.25),
+    0px 10px 16px -10px rgba(84, 158, 242, 0.2);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.4rem;
+}
+
+.card[data-order="1"],
+.card[data-order="4"] {
+  grid-row: 1 / span 3;
+  align-self: center;
+  margin-bottom: 2.7rem;
+}
+
+.card[data-order="4"] {
+  grid-column: 3;
+}
+
+.card[data-order="3"] {
+  grid-column: 2;
+}
+
+.card[data-order="1"]::before {
+  background-color: var(--primary-cyan);
+}
+
+.card[data-order="2"]::before {
+  background-color: var(--primary-red);
+}
+
+.card[data-order="3"]::before {
+  background-color: var(--primary-orange);
+}
+
+.card[data-order="4"]::before {
+  background-color: var(--primary-blue);
+}
+
+.card__content {
+  margin-bottom: 3.9rem;
+}
+
+.card__title {
+  margin-bottom: 1.2rem;
+  font-size: var(--font-l);
+  color: var(--neutral-700);
+}
+
+.card__description {
+  font-size: var(--font-sm);
+  line-height: 2.3rem;
+  letter-spacing: 0.006em;
+}
+
+.card__image {
+  display: flex;
+  justify-content: flex-end;
 }
